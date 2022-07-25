@@ -2,12 +2,14 @@ import GlobalProvider from 'components/wrappers/GlobalProvider'
 
 import 'styles/tailwind.css'
 
-import type { AppProps } from 'next/app'
+import type { TAppPropsWithLayout } from 'typescript/next.types'
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
-  <GlobalProvider>
-    <Component {...pageProps} />
-  </GlobalProvider>
-)
+const MyApp = ({ Component, pageProps }: TAppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? (page => page)
+
+  return (
+    <GlobalProvider>{getLayout(<Component {...pageProps} />)}</GlobalProvider>
+  )
+}
 
 export default MyApp

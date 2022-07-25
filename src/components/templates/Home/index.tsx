@@ -1,9 +1,10 @@
 import { Style } from './styles'
 
-import type { NextPage } from 'next'
+import { TNextPageWithLayout } from 'typescript/next.types'
+
 import Head from 'next/head'
 
-const Home: NextPage = () => (
+const Home: TNextPageWithLayout = () => (
   <>
     <Head>
       <title>Home</title>
@@ -13,8 +14,8 @@ const Home: NextPage = () => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
-    <Style className='text-3xl font-bold underline mx-20 bg-red-500'>
-      Hello Next
+    <Style className='text-3xl font-bold underline mx-20'>
+      <button className='btn'>Hello Next</button>
     </Style>
   </>
 )
