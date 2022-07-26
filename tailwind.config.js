@@ -2,5 +2,5 @@
 module.exports = {
   plugins: [],
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
-  theme: {}
+  theme: { extend: { colors: { black: '#111111' } } }
 }

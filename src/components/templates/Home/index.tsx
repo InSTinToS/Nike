@@ -1,8 +1,40 @@
-import { Style } from './styles'
+/* eslint-disable @next/next/no-img-element */
+import { HelpLinks, OtherLinks, Section, Style } from './styles'
+
+import Button from 'components/atoms/Button'
 
 import { TNextPageWithLayout } from 'typescript/next.types'
 
 import Head from 'next/head'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+
+const helpLinks = [
+  'Dúvidas Gerais',
+  'Encontre seu Tamanho',
+  'Entregas',
+  'Pedidos',
+  'Devoluções',
+  'Editar Consentimento',
+  'Preferências de Cookie',
+  'Pagamentos',
+  'Produtos',
+  'Corporativo',
+  'Fale Conosco'
+]
+
+const otherLinks = [
+  ['Ofertas', 'Últimas unidades', 'Masculino', 'Feminino', 'Infantil'],
+  ['Calçados', 'Casual', 'Corrida', 'Chuteiras', 'Basquete'],
+  ['Roupas', 'Tops', 'Camisetas', 'Shorts', 'Camisas de Times'],
+  ['Acessórios', 'Bonés & Viseiras', 'Bolsas & Mochilas', 'Bolas', 'Meias'],
+  [
+    'Destaques',
+    'Lançamentos',
+    'Exclusivo Membros',
+    'Coleção Unissex',
+    'Guia de Tops'
+  ]
+]
 
 const Home: TNextPageWithLayout = () => (
   <>
@@ -14,8 +46,163 @@ const Home: TNextPageWithLayout = () => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
-    <Style className='text-3xl font-bold underline mx-20'>
-      <button className='btn'>Hello Next</button>
+    <Style>
+      <header>
+        <button>
+          <IoIosArrowBack />
+        </button>
+
+        <div>
+          <img
+            alt=''
+            src='https://images.lojanike.com.br/pitchbar/ni/18_20200130171103.png'
+          />
+          <span>
+            Fique por dentro dos lançamentos <a>SNKRS</a>
+          </span>
+          .
+        </div>
+
+        <button>
+          <IoIosArrowForward />
+        </button>
+      </header>
+
+      <Section>
+        <img
+          alt=''
+          src='https://images.lojanike.com.br/hotsitevitrine/ni/0/1658505415/assets/img/mercurial-desk.jpg'
+        />
+
+        <article>
+          <h2>A VELOCIDADE ESTÁ NO AIR</h2>
+
+          <p>
+            Descubra um novo tipo de velocidade. Apresentando a Air Zoom
+            Mercurial.
+          </p>
+
+          <Button>Ver Mercurial</Button>
+        </article>
+      </Section>
+
+      <Section>
+        <h3>Lançamentos</h3>
+
+        <img
+          alt=''
+          src='https://images.lojanike.com.br/hotsitevitrine/ni/0/1658505415/assets/img/zoom-fly-desk.jpg'
+        />
+
+        <article>
+          <h2>NIKE ZOOM FLY 5</h2>
+
+          <p>O tênis ideal para o seu tipo favorito de corrida</p>
+
+          <Button>Ver Tênis</Button>
+        </article>
+      </Section>
+
+      <footer>
+        <OtherLinks>
+          {otherLinks.map((items, index) => (
+            <ul key={index}>
+              {items.map((item, index) => (
+                <li key={item}>
+                  {index !== 0 ? <a>{item}</a> : <b>{item}</b>}
+                </li>
+              ))}
+            </ul>
+          ))}
+        </OtherLinks>
+
+        <HelpLinks>
+          <ul>
+            <li>
+              <a>
+                <b>ENCONTRE UMA LOJA NIKE</b>
+              </a>
+            </li>
+
+            <li>
+              <a>
+                <b>CADASTRE-SE PARA RECEBER NOVIDADES</b>
+              </a>
+            </li>
+
+            <li>
+              <a>
+                <b>NIKE JOURNAL</b>
+              </a>
+            </li>
+
+            <li>
+              <a>
+                <b>MAPA DO SITE</b>
+              </a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <b>AJUDA</b>
+            </li>
+
+            {helpLinks.map(item => (
+              <li key={item}>
+                <a>{item}</a>
+              </li>
+            ))}
+          </ul>
+
+          <ul>
+            <li>
+              <b>SOBRE A NIKE</b>
+            </li>
+
+            <li>
+              <a>Feito pra Jogar</a>
+            </li>
+
+            <li>
+              <a>Sustentabilidade</a>
+            </li>
+          </ul>
+
+          <aside>
+            <b>REDES SOCIAIS</b>
+
+            <ul>
+              <li>
+                <a>
+                  <img
+                    alt=''
+                    src='https://images.lojanike.com.br/site/ni/icones/facebook.svg'
+                  />
+                </a>
+              </li>
+
+              <li>
+                <a>
+                  <img
+                    alt=''
+                    src='https://images.lojanike.com.br/site/ni/icones/youtube.svg'
+                  />
+                </a>
+              </li>
+
+              <li>
+                <a>
+                  <img
+                    alt=''
+                    src='https://images.lojanike.com.br/site/ni/icones/instagram.svg'
+                  />
+                </a>
+              </li>
+            </ul>
+          </aside>
+        </HelpLinks>
+      </footer>
     </Style>
   </>
 )
