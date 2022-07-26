@@ -1,8 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { About, Account, Footer, Header, MainLinks, Search } from './styles'
+import { Footer, Header, NavbarStyle } from './styles'
+
+import Field from 'components/molecules/Field'
 
 import { ReactElement } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
+import { BsBag } from 'react-icons/bs'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 const navbarItems = [
   {
@@ -36,80 +40,74 @@ const navbarItems = [
 ]
 
 const Navbar = () => (
-  <nav>
-    <Header>
-      <About>
-        <li>
-          <a>
-            <span>Junte-se a Nós</span>
-          </a>
-        </li>
+  <>
+    <NavbarStyle>
+      <Header>
+        <a id='basket-snkrs'>
+          <img
+            id='basket'
+            alt='basket'
+            src='https://images.lojanike.com.br/topbar/ni/8_20190522191105.png'
+          />
 
-        <li>
-          <a>
-            <img
-              alt=''
-              id='basket'
-              src='https://images.lojanike.com.br/topbar/ni/8_20190522191105.png'
-            />
-          </a>
-        </li>
+          <span id='snkrs'>SNKRS</span>
+        </a>
 
-        <li>
-          <a>
-            <img
-              alt=''
-              src='https://images.lojanike.com.br/topbar/ni/12_20200512184709.png'
-            />
-          </a>
-        </li>
-      </About>
+        <a id='logo'>
+          <img
+            alt='logo'
+            src='https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg'
+          />
+        </a>
 
-      <Account>
-        <li>
-          <a>Acompanhar Pedidos</a>
-        </li>
+        <button type='button' id='bag'>
+          <BsBag />
+        </button>
 
-        <li>
-          <a>Login / Inscreva-se</a>
-        </li>
+        <button type='button' id='burger'>
+          <GiHamburgerMenu />
+        </button>
 
-        <li>
-          <a>Ajuda</a>
-        </li>
-
-        <li>
-          <a>
-            <img
-              alt=''
-              src='https://images.lojanike.com.br/site/ni/icones/cart.png'
-            />
-          </a>
-        </li>
-      </Account>
-    </Header>
-
-    <Footer>
-      <img
-        src='https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg'
-        alt=''
-      />
-
-      <MainLinks>
-        {navbarItems.map(({ path, label }) => (
-          <li key={path}>
-            <a href={path}>{label}</a>
+        <ul>
+          <li>
+            <a>Ajuda</a>
           </li>
-        ))}
-      </MainLinks>
 
-      <Search>
-        <AiOutlineSearch />
+          <li>
+            <a>Junte-se a nós</a>
+          </li>
 
-        <input type='text' placeholder='O que você procura?' />
-      </Search>
-    </Footer>
-  </nav>
+          <li>
+            <a>Entrar</a>
+          </li>
+        </ul>
+      </Header>
+
+      <Footer>
+        <img
+          alt=''
+          src='https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg'
+        />
+
+        <ul>
+          {navbarItems.map(({ path, label }) => (
+            <li key={path}>
+              <a href={path}>{label}</a>
+            </li>
+          ))}
+        </ul>
+
+        <Field
+          icon={<AiOutlineSearch />}
+          inputProps={{ type: 'text', placeholder: 'Buscar' }}
+        />
+
+        <button type='button' id='bag'>
+          <BsBag />
+        </button>
+      </Footer>
+    </NavbarStyle>
+  </>
 )
 
 const getNavbarLayout = (page: ReactElement) => (

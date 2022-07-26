@@ -1,162 +1,139 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import tw from 'twin.macro'
 
-const About = styled.ul`
-  ${tw`
-    flex     
-  `}
+const NavbarPaddingTop = css`
+  ${tw`pt-24`}
 
-  li {
-    ${tw`
-      px-7
-      py-2
-      border-r
-      border-r-gray-200
-    `}
+  @media screen and (min-width: 768px) {
+    ${tw`pt-48`}
+  }
 
-    a {
-      display: block;
-
-      ${tw`
-        flex
-        items-center
-        h-5
-        text-sm
-        text-gray-500 
-        cursor-pointer
-      `}
-
-      span {
-        ${tw`
-          opacity-70
-        `}
-      }
-
-      &:hover {
-        img,
-        span {
-          ${tw`
-            opacity-100
-          `}
-        }
-      }
-
-      img {
-        ${tw`
-          opacity-50
-        `}
-
-        &#basket {
-          ${tw`
-            h-full
-          `}
-        }
-      }
-    }
+  @media screen and (min-width: 1024px) {
+    ${tw`pt-32`}
   }
 `
 
-const Account = styled.ul`
-  ${tw`
-    flex
-    items-center
-    space-x-8
-    px-8
-  `}
+const NavbarContent = css`
+  ${tw`max-w-screen-3xl w-full min-w-80 mx-auto`}
+`
 
-  li {
-    ${tw`
-      tracking-wide
-    `}
+const Header = styled.header`
+  ${tw`flex w-full px-4 py-4 items-center max-w-screen-3xl`}
 
-    a {
-      ${tw`
-        text-xs
-        text-gray-400 
-      `}
-    }
+  img {
+    ${tw`h-3.5`}
   }
-`
-
-const Header = tw.header`
-  flex 
-  items-center
-  justify-between 
-  border-b 
-  border-b-gray-200
-`
-
-export const Footer = styled.footer`
-  ${tw`
-    flex 
-    justify-between
-    items-center
-    px-8
-    border-b
-    border-b-gray-200
-  `}
-
-  > img {
-    ${tw`
-      w-16
-    `}
-  }
-`
-
-export const MainLinks = styled.ul`
-  ${tw`
-    flex
-    items-center
-  `}
-
-  li {
-    ${tw`
-      px-6 
-      py-7
-      border-b-2
-      border-b-transparent
-    `}
-
-    &:hover {
-      ${tw`
-        cursor-pointer
-        border-b-2
-        border-b-black
-      `}
-    }
-
-    a {
-      ${tw`
-        text-sm 
-        tracking-tighter 
-        font-semibold
-      `}
-    }
-  }
-`
-
-export const Search = styled.div`
-  ${tw`
-    flex 
-    items-center 
-    border 
-    py-2
-    px-4 
-    space-x-4
-  `}
 
   svg {
-    ${tw`
-      h-5 
-      w-5
-    `}
+    ${tw`h-6 w-6`}
   }
 
-  input {
-    ${tw`
-      text-sm
-    `}
+  ul {
+    ${tw`hidden`}
+  }
+
+  #bag {
+    ${tw`ml-auto mr-4`}
+  }
+
+  #basket-snkrs {
+    ${tw`hidden`}
+  }
+
+  @media screen and (min-width: 425px) {
+    #logo {
+      ${tw`hidden`}
+    }
+
+    #basket-snkrs {
+      ${tw`flex`}
+
+      #basket {
+        ${tw`h-6 mr-2`}
+      }
+
+      #snkrs {
+        ${tw`text-black font-extrabold tracking-tighter`}
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    #bag,
+    #burger {
+      ${tw`hidden`}
+    }
+
+    ul {
+      ${tw`flex ml-auto text-xs space-x-2`}
+
+      li + li {
+        ${tw`pl-2 border-l border-l-black`}
+      }
+    }
   }
 `
 
-export { About, Account, Header }
+const Footer = styled.footer`
+  ${tw`flex w-full px-4 items-center justify-between max-w-screen-3xl`}
+
+  ul, img {
+    ${tw`hidden`}
+  }
+
+  > img {
+    ${tw`w-16 h-16`}
+  }
+
+  #bag {
+    ${tw`hidden`}
+  }
+
+  @media screen and (min-width: 768px) {
+    ${tw`grid gap-y-2 gap-x-4 grid-cols-navbar`}
+
+    ul,
+    img {
+      ${tw`flex`}
+    }
+
+    ul {
+      ${tw`justify-between items-center row-start-2 col-span-3`}
+
+      li {
+        ${tw`h-full`}
+
+        a {
+          ${tw` py-5 px-2 block text-sm border-b-2 tracking-tighter 
+            border-b-transparent`}
+
+          &:hover {
+            ${tw`border-b-2 border-b-black`}
+          }
+        }
+      }
+    }
+
+    #bag {
+      ${tw`block`}
+
+      svg {
+        ${tw`w-6 h-6`}
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    ${tw`flex px-4 items-center justify-between`}
+
+    .Field {
+      ${tw`flex-none`}
+    }
+  }
+`
+
+const NavbarStyle = styled.nav`
+  ${tw`flex flex-col items-center fixed z-10 top-0 w-full min-w-80 bg-white`}
+`
+
+export { Header, NavbarStyle, Footer, NavbarContent, NavbarPaddingTop }

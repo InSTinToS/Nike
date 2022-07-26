@@ -1,47 +1,7 @@
+import { NavbarContent } from 'components/wrappers/Navbar/styles'
+
 import styled from 'styled-components'
 import tw from 'twin.macro'
-
-const Section = styled.section`
-  ${tw`
-    px-8
-    py-5
-    pt-0
-  `}
-
-  & + section {
-    ${tw`
-      pt-5
-    `}
-  }
-
-  h3 {
-    ${tw`
-      pt-6
-      mb-2
-      text-2xl
-      font-bold
-      tracking-tighter
-    `}
-  }
-
-  article {
-    ${tw`
-      flex
-      flex-col
-      space-y-5
-      items-center
-    `}
-
-    h2 {
-      ${tw`
-      pt-6
-      text-6xl
-      font-black
-      tracking-tighter
-    `}
-    }
-  }
-`
 
 const OtherLinks = styled.section`
   ${tw`
@@ -123,50 +83,13 @@ const HelpLinks = styled.section`
 `
 
 const Style = styled.main`
-  header {
-    ${tw`
-      py-2 
-      flex 
-      space-x-48
-      justify-center 
-      items-center 
-    `}
+  ${NavbarContent}
 
-    button svg {
-      ${tw`
-        h-6 
-        w-6
-      `}
-    }
-
-    > div {
-      ${tw`
-        flex
-        items-center
-      `}
-
-      img {
-        ${tw`
-          h-10
-          mr-3
-        `}
-      }
-
-      span {
-        ${tw`
-          text-sm
-        `}
-
-        a {
-          ${tw`
-            underline
-            font-bold
-            tracking-tighter
-          `}
-        }
-      }
+  @media screen and (min-width: 768px) {
+    header {
+      ${tw`space-x-8`}
     }
   }
 `
 
-export { Style, HelpLinks, OtherLinks, Section }
+export { Style, HelpLinks, OtherLinks }
