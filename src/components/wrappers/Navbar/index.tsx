@@ -44,11 +44,7 @@ const Navbar = () => (
     <NavbarStyle>
       <Header>
         <a id='basket-snkrs'>
-          <img
-            id='basket'
-            alt='basket'
-            src='https://images.lojanike.com.br/topbar/ni/8_20190522191105.png'
-          />
+          <img id='basket' alt='basket' src='/jordan.png' />
 
           <span id='snkrs'>SNKRS</span>
         </a>
